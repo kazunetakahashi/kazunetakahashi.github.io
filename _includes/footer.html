@@ -1,0 +1,27 @@
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    {% if site.data.ui-text[site.locale].follow_label %}
+    <li><strong>{{ site.data.ui-text[site.locale].follow_label }}</strong></li>
+    {% endif %}
+
+    {% if site.footer.links %}
+    {% for link in site.footer.links %}
+    {% if link.label and link.url %}
+    <li><a href="{{ link.url }}" rel="nofollow noopener noreferrer"><i class="{{ link.icon | default: 'fas fa-link' }}"
+          aria-hidden="true"></i> {{ link.label }}</a></li>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+
+    <li><a
+        href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ '/feed.xml' | relative_url }}{% endif %}"><i
+          class="fas fa-fw fa-rss-square" aria-hidden="true"></i>
+        {{ site.data.ui-text[site.locale].feed_label | default: "Feed" }}</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}.
+  {{ site.data.ui-text[site.locale].powered_by | default: "Powered by" }} <a href="https://jekyllrb.com"
+    rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/"
+    rel="nofollow">Minimal Mistakes</a>.
+<a href={% link _pages/plagiarism.md %}>このサイト( kazune-lab.net 以下のページ全て)の文章・画像・その他コンテンツのうち、私が著作権を有するものであって、許諾が明示されていないものについては、法律で定められた例外と、私が許可する個別の例外を除き、転載を許可しません。転載を確認した場合は、サイト運営者及び転載者に、別途定める原稿料を私にお支払いいただきます。また、転載した時点で、サイト運営者及び転載者は、別途定める原稿料を私にお支払いただくことについて、同意がなされているものとみなします。</a>このサイトの内容は正確な記述を心がけてはいますが、このサイトの内容を利用したことによって発生するいかなる損害や不都合についても、責任を負いません。</div>
